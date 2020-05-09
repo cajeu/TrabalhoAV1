@@ -1,0 +1,114 @@
+package exercicioCarro;
+
+import java.util.Scanner;
+
+public class Balcao {
+	public static void main(String[] args) {
+		Balcao b = new Balcao();
+		b.processar();
+	}
+
+	Scanner leia = new Scanner(System.in);
+
+	Contrato cont = new Contrato();
+
+	private String marca;
+	private String modelo;
+	private double valor;
+
+	private void lerDadosComuns() {
+		System.out.println("Digite a marca:");
+		this.marca = leia.next();
+		System.out.println("Digite o modelo:");
+		this.modelo = leia.next();
+		System.out.println("Digite o valor:");
+		this.valor = leia.nextDouble();
+	}
+
+	private void processar() {
+		System.out.println("1 - Adicionar moto");
+		System.out.println("2 - Adicionar bicicleta");
+		System.out.println("3 - Adicionar patinete");
+		System.out.println("4 - Adicionar carro");
+		System.out.println("7 - Encerrar vigencia");
+		System.out.println("9 - Encerrar aplicação");
+		System.out.println("Digite sua opção");
+		int op = leia.nextInt();
+		switch (op) {
+		case 1:
+			System.out.println("Adicionar moto");
+			lerDadosComuns();
+			System.out.println("Digite a cilindrada:");
+			int cilindrada = this.leia.nextInt();
+
+			Moto moto = new Moto();
+
+			moto.setMarca(this.marca);
+			moto.setModelo(this.modelo);
+			moto.setValor(this.valor);
+			moto.setCilindrada(cilindrada);
+
+			this.cont.adicionarVeiculo(moto);
+
+			break;
+		case 2:
+			System.out.println("Adicionar bicicleta");
+			lerDadosComuns();
+			System.out.println("Digite o tamanho do Aro:");
+			int raioAro = this.leia.nextInt();
+			System.out.println("Digite o tipo de freio:");
+			String tpfreio = this.leia.next();
+			System.out.println("Digite o tipo da marcha:");
+			String tpmarcha = this.leia.next();
+
+			Bicicleta bike = new Bicicleta();
+
+			bike.setMarca(this.marca);
+			bike.setModelo(this.modelo);
+			bike.setValor(this.valor);
+			bike.setRaio(raioAro);
+			bike.setTpfreio(tpfreio);
+			bike.setTpmarcha(tpmarcha);
+
+			this.cont.adicionarVeiculo(bike);
+
+			break;
+		case 3:
+			System.out.println("Adicionar patinete");
+			lerDadosComuns();
+
+			Patinete pat = new Patinete();
+
+			System.out.println("É eletrico? (s/n)");
+			String eEletrico = this.leia.next();
+			if (eEletrico.equalsIgnoreCase("s")) {
+				pat.seteEletrico(true);
+			}
+			System.out.println("Peso suportado:");
+			int pesoSuportado = this.leia.nextInt();
+
+			pat.setMarca(this.marca);
+			pat.setModelo(this.modelo);
+			pat.setValor(this.valor);
+			pat.setPesoSuportado(pesoSuportado);
+
+			break;
+		case 4:
+			System.out.println("Adicionar carro");
+			lerDadosComuns();
+			break;
+		case 7:
+			System.out.println("Encerrar vigência");
+			double tot = this.cont.fecharContrato();
+			System.out.println("Pagará por: " + tot);
+			
+			break;
+		case 9:
+			System.out.println("Encerrar aplicação");
+			break;
+
+		default:
+			break;
+		}
+	}
+}
