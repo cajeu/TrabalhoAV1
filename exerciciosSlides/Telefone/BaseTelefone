@@ -1,0 +1,39 @@
+package exercicioTelefoneTV;
+
+public class BaseTelefone {
+	String[] gravacao = new String[5];
+	int indiceGravacao = 0;
+	boolean estado = false;
+
+	public void ligarTelefone() {
+		estado = true;
+	}
+	public void desligarTelefone() {
+		estado = false;
+	}
+	public void efetuarLigacao(String numero) {
+		System.out.println("Conectando-se com: 41" + numero);
+	}
+
+	public void efetuarLigacaoDDD(String numero, int ddd) {
+		System.out.println("Conectando-se com: " + ddd + numero);
+	}
+
+	public void gravarConversa(String conversa) {
+		gravacao[indiceGravacao] = conversa;
+		indiceGravacao = indiceGravacao + 1;
+		if (indiceGravacao == 5) {
+			System.out.println("Conversas serão sobrepostas a partir da primeira.");
+			indiceGravacao = 0;
+		}
+	}
+
+	public String obterConversaGravada(int indiceAudio) {
+		if (indiceAudio < 0 || indiceAudio > 5) {
+			return "Audio inválido. Reentre.";
+		} else {
+			indiceAudio = indiceAudio - 1;
+			return gravacao[indiceAudio];
+		}
+	}
+}
