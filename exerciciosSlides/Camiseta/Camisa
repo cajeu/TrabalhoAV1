@@ -1,0 +1,19 @@
+package exercicioCamiseta;
+
+public class Camisa extends Vestuario {
+	private String tpGola;
+
+	public String getTpGola() {
+		return tpGola;
+	}
+
+	public void setTpGola(String tpGola) {
+		this.tpGola = tpGola;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Camisa [tpGola=" + tpGola + "]";
+	}
+
+}
