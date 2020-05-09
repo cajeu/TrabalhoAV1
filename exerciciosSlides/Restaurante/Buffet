@@ -1,0 +1,21 @@
+package exercicioprato;
+
+public class Buffet extends Prato {
+	
+	private double kilo;
+
+	public double getKilo() {
+		return kilo;
+	}
+
+	public void setKilo(double kilo) {
+		this.kilo = kilo;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Buffet [kilo=" + kilo + "]";
+	}
+	
+
+}
