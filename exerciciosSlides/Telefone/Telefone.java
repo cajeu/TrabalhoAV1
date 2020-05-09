@@ -3,9 +3,10 @@ package exercicioTelefoneTV;
 import java.util.Scanner;
 
 public class Telefone {
+	 static Scanner entrada = new Scanner(System.in).useDelimiter("\r\n");
 
 	public static void main(String[] args) {
-		Scanner entrada = new Scanner(System.in).useDelimiter("\r\n");
+		
 		BaseTelefone telefone = new BaseTelefone();
 		int op = 0;
 		String numero;
@@ -15,23 +16,23 @@ public class Telefone {
 		telefone.ligarTelefone();
 		while (op != 9) {
 			System.out.println("\n");
-			System.out.println("1 - Efetuar ligação");
-			System.out.println("2 - Efetuar ligação com DDD");
-			System.out.println("3 - Gravar áudio");
-			System.out.println("4 - Recuperar áudio (1..5)");
+			System.out.println("1 - Efetuar ligaÃ§Ã£o");
+			System.out.println("2 - Efetuar ligaÃ§Ã£o com DDD");
+			System.out.println("3 - Gravar Ã¡udio");
+			System.out.println("4 - Recuperar Ã¡udio (1..5)");
 			System.out.println("9 - Desligar Telefone \n");
-			System.out.println("Digite sua opção do telefone:");
+			System.out.println("Digite sua opÃ§Ã£o do telefone:");
 			op = entrada.nextInt();
 			switch (op) {
 			case 1:
-				System.out.println("Digitar o número:");
+				System.out.println("Digitar o nÃºmero:");
 				numero = entrada.next();
 				telefone.efetuarLigacao(numero);
 				break;
 			case 2:
 				System.out.println("Digitar o DDD:");
 				ddd = entrada.nextInt();
-				System.out.println("Digitar o número:");
+				System.out.println("Digitar o nÃºmero:");
 				numero = entrada.next();
 				telefone.efetuarLigacaoDDD(numero, ddd);
 				break;
@@ -43,18 +44,19 @@ public class Telefone {
 			case 4:
 				indAudio = entrada.nextInt();
 				String conv = telefone.obterConversaGravada(indAudio);
-				System.out.println("Conversa gravada na posição: 0" + indAudio + " - " + conv);
+				System.out.println("Conversa gravada na posiÃ§Ã£o: 0" + indAudio + " - " + conv);
 				break;
 			case 9:
 				System.out.println("Desligando o telefone");
 				telefone.desligarTelefone();
 				System.exit(0);
 			default:
-				System.out.println("Opção inválida");
+				System.out.println("OpÃ§Ã£o invÃ¡lida");
 				break;
 			}
 		}
 		entrada.close();
+
 
 	}
 
